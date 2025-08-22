@@ -1,0 +1,16 @@
+# OS-specific files
+.DS_Store
+
+# Swift build artifacts
+/.build
+/Packages
+xcuserdata/
+DerivedData/
+.swiftpm/configuration/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.netrc
+
+# VS Code files
+.vscode/
+!.vscode/extensions.json
+!.vscode/launch.json
