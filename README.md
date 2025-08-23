@@ -1,5 +1,7 @@
 # json-swift
 
+This will automatically discover and run all tests in the Tests/JsonCoreTests directory.
+
 ## License
 
 MIT
@@ -21,7 +23,7 @@ swift build
 To format Swift files, run:
 
 ```sh
-swift format --in-place --recursive Sources
+swift format --in-place --recursive .
 ```
 
 ## Lint
@@ -29,7 +31,7 @@ swift format --in-place --recursive Sources
 To lint Swift files, run:
 
 ```sh
-swift format lint --recursive Sources
+swift format lint --recursive .
 ```
 
 Configure rules in `.swiftlint.yml` if needed.
@@ -40,4 +42,12 @@ To run the CLI:
 
 ```sh
 swift run
+```
+
+## Running Unit Tests
+
+To run all unit tests, execute the following command from the project root:
+
+```sh
+swift test
 ```

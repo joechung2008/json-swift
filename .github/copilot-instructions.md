@@ -27,9 +27,15 @@
 - **Run CLI:**
   - `swift run json-swift < input.json`
 - **Test:**
-  - No test files detected; add tests in `Tests/` using SwiftPM conventions if needed.
-- **Debug:**
-  - Add print statements or use Xcode/LLDB for step debugging.
+  - Unit tests are located in `Tests/JsonCoreTests/`.
+  - To run all unit tests, execute:
+
+```sh
+swift test
+```
+
+  - This will automatically discover and run all tests.
+  - To add new tests, create a file in `Tests/JsonCoreTests/` and define a public class inheriting from `XCTestCase` with methods starting with `test`.
 
 ## Project-Specific Patterns
 
@@ -59,6 +65,7 @@ prettyPrint(result.token)
 - `Sources/cli/main.swift`: CLI logic
 - `Sources/cli/prettyPrint.swift`: Pretty printer
 - `Package.swift`: Project configuration
+- `Tests/JsonCoreTests/`: Unit tests
 
 ---
 

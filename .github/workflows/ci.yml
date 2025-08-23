@@ -1,20 +1,37 @@
-name: Build Swift Project
+name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
-  build:
-    runs-on: macos-latest
+  build-and-test:
+    runs-on: macos-15
+
+    strategy:
+      matrix:
+        swift-version: [6.1]
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Swift
         uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: ${{ matrix.swift-version }}
 
-      - name: Build project
-        run: swift build --verbose
+      - name: Build
+        run: swift build
+
+      - name: Run Tests with Coverage
+        run: swift test --enable-code-coverage
+
+      - name: Upload Coverage Data
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-swift-${{ matrix.swift-version }}
+          path: .build/debug/codecov/

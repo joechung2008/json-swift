@@ -31,7 +31,11 @@ public func prettyPrint(_ token: Token?, indent: String = "") {
     }
   case .number:
     if let number = token as? NumberToken {
-      print("\(indent)\(number.value ?? 0)")
+      if let value = number.value {
+        print("\(indent)\(String(format: "%.16g", value))")
+      } else {
+        print("\(indent)0")
+      }
     }
   case .trueType:
     print("\(indent)true")
