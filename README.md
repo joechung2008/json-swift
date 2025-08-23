@@ -1,7 +1,5 @@
 # json-swift
 
-This will automatically discover and run all tests in the Tests/JsonCoreTests directory.
-
 ## License
 
 MIT
@@ -48,6 +46,23 @@ swift run
 
 To run all unit tests, execute the following command from the project root:
 
-```sh
+````sh
 swift test
+
+## Running Tests with Coverage
+
+To run all tests and generate a coverage report:
+
+```sh
+swift test --enable-code-coverage
+````
+
+To locate the generated coverage report:
+
+```sh
+swift test --show-codecov-path
 ```
+
+You can open the coverage report in Xcode or use third-party tools to visualize coverage data.
+
+This will automatically discover and run all tests in the Tests/JsonCoreTests directory.
