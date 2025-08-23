@@ -4,7 +4,7 @@ public struct ObjectToken: Token {
 }
 public func parseObject(_ expression: String) throws -> JsonCore.JsonParseResult {
   enum Mode {
-    case delimiter, end, leftBrace, pair, scanning
+    case delimiter, end, pair, scanning
   }
   var mode: Mode = .scanning
   var pos = 0
@@ -55,8 +55,6 @@ public func parseObject(_ expression: String) throws -> JsonCore.JsonParseResult
         throw SyntaxError("expected ',' or '}', actual '\(ch)'")
       }
     case .end:
-      break
-    case .leftBrace:
       break
     }
   }
