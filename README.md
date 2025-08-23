@@ -46,8 +46,9 @@ swift run
 
 To run all unit tests, execute the following command from the project root:
 
-````sh
+```sh
 swift test
+```
 
 ## Running Tests with Coverage
 
