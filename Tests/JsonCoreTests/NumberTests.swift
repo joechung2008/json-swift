@@ -128,4 +128,8 @@ public final class NumberTests: XCTestCase {
   func testParseInvalidLeadingZero() throws {
     XCTAssertThrowsError(try parseNumber("0123"))
   }
+
+  func testParseInvalidPlusNumber() throws {
+    XCTAssertThrowsError(try JsonCore.parse("+3"))
+  }
 }
